@@ -120,7 +120,7 @@ module displayMux
 	       4'h4: sseg[6:0] = 7'b1001100;
 	       4'h5: sseg[6:0] = 7'b0100100;
 	       4'h6: sseg[6:0] = 7'b0100000;
-	      4'h7: sseg[6:0] = 7'b0001111;
+	       4'h7: sseg[6:0] = 7'b0001111;
 	       4'h8: sseg[6:0] = 7'b0000000;
 	       4'h9: sseg[6:0] = 7'b0000100;
 	       4'ha: sseg[6:0] = 7'b0001000;
@@ -146,9 +146,10 @@ module stop_watch
 	
 	localparam off = 1'b0,               // states 
 	           on = 1'b1;
+		   
 	        // state register
-   always @(posedge clk, posedge clr)
-       if(clr)
+    always @(posedge clk, posedge clr)
+         if(clr)
 	 state_reg <= 0;
        else 
          state_reg <= state_next;
@@ -173,7 +174,7 @@ module stop_watch
         
         // declarations for counter circuit
      localparam divisor = 50000000;                  // number of clock cycles in 1 s, for mod-50M counter
-		//localparam divisor = 40000;
+
 	reg [26:0] sec_reg;                             // register for second counter
 	wire [26:0] sec_next;                           // next state connection for second counter
 	reg [5:0] d5_reg,d4_reg, d3_reg, d2_reg, d1_reg, d0_reg;       // registers for decimal values displayed on 4 digit displays
