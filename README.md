@@ -32,7 +32,7 @@ module displayMux
 
 	// constant for refresh rate: 50 Mhz / 2^16 = 763 Hz
 	// we will use 3 of the  MSB states to multiplex 8 displays
-	localparam N = 20;
+	localparam N = 18;
 	
 	// internal signals
 	reg [N-1:0] q_reg;
@@ -173,7 +173,7 @@ module stop_watch
         endcase		
         
         // declarations for counter circuit
-     localparam divisor = 50000000;                  // number of clock cycles in 1 s, for mod-50M counter
+     localparam divisor = 100000000;                  // number of clock cycles in 1 s, for mod-50M counter
 
 	reg [26:0] sec_reg;                             // register for second counter
 	wire [26:0] sec_next;                           // next state connection for second counter
